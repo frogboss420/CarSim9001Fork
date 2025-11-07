@@ -1,14 +1,14 @@
 from random import randint
 
 
-class Car(object):
+class Car:
     def __init__(self):
         self.theEngine = Engine()
     def updateModel(self,dt):
         self.theEngine.updateModel(dt)
 
 
-class Wheel(object):
+class Wheel:
     def __init__(self):
         self.orientation: int = randint(0,360)
 
@@ -19,7 +19,7 @@ class Wheel(object):
         self.orientation %= 360 #sikrer at hjulets orientation ikke overstiger 360
 
 
-class Engine(object):
+class Engine:
     def __init__(self):
         self.throttlePosition: float = 0
         self.theGearbox = Gearbox()
@@ -37,7 +37,7 @@ class Engine(object):
         self.theGearbox.rotate(self.currentRpm * (dt / 60))
 
 
-class Gearbox(object):
+class Gearbox:
 
 
     def __init__(self):
@@ -65,7 +65,7 @@ class Gearbox(object):
                 wheel.rotate(revolutions * self.gears[self.currentGear])
 
 
-class Tank(object):
+class Tank:
     def __init__(self):
         self.capacity: int = 500
         self.contents: int = 500
